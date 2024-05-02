@@ -1,0 +1,12 @@
+<div *ngIf="isLoading" style="margin-top: 30px;">
+    <app-mainloader></app-mainloader>
+</div>
+
+<div *ngIf="!isLoading" class="AllDataOfItems">
+    <div class="d-flex justify-content-center align-items-center">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+    <ng-container *ngFor="let job of allJobs | paginate: { itemsPerPage: itemsPerPage, currentPage: p}">
+        <app-jobcard [job]="job"></app-jobcard>
+    </ng-container> 
+</div>

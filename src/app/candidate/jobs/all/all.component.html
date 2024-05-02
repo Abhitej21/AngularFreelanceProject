@@ -1,0 +1,35 @@
+<!-- <h1>Pure CSS Tabs With Indicator</h1> -->
+<div class="tabs">
+  
+    <!-- <input type="radio" id="tab1" name="tab-control" checked> -->
+    <input type="radio" id="tab2" name="tab-control" checked>
+    <input type="radio" id="tab3" name="tab-control">  
+    <!-- <input type="radio" id="tab4" name="tab-control"> -->
+    <ul>
+      <li title="Delivery Contents"><label for="tab2" role="button">
+          <img class="icon" src="https://res.cloudinary.com/da7y99axc/image/upload/v1714459338/noun-freelancer-1861058_pp2bxh.png">
+          <br><span>My Jobs</span></label>
+      </li>
+      <li title="Shipping"><label for="tab3" role="button">
+          <img class="icon" src="https://res.cloudinary.com/da7y99axc/image/upload/v1714459338/noun-freelancer-1861058_pp2bxh.png">
+          <br><span>Freelance Jobs</span></label>
+      </li>   
+    </ul>
+    
+    <div class="slider"><div class="indicator"></div></div>
+    <div class="content">
+      <section>
+        <div class="d-flex justify-content-center align-items-center">
+          <h2>My Jobs</h2>
+          <app-myjobs></app-myjobs>
+        </div>
+      </section>
+      
+      <section>
+          <h2>Freelance Jobs</h2>
+          <app-freelance></app-freelance>
+      </section>
+      
+    </div>
+  </div>
+  

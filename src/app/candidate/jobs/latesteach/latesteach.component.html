@@ -1,0 +1,38 @@
+<div class="box-of-latest">
+    <div class='each-card'>
+        <div class="d-flex w-100 justify-content-between">
+    <div style="display: flex; flex-direction: column;">
+       <h1>{{job.job.jobTitle}}</h1>
+        <!-- <span><img src="https://www.iconarchive.com/download/i85595/graphicloads/100-flat/new.ico" class="new-tag" alt="NEW"/></span></div> -->
+        <div class='skills-section'>
+            <ng-container *ngFor="let skill of job.job.jobSkills">
+                <span class="skill-name">{{skill}}</span>
+            </ng-container>
+            <!-- {job.jobSkills.map(eachSkill => <span class='skill-name'>{eachSkill}</span>)} -->
+        </div>
+        <div class='details-job'>
+            <h5 class='job-id'> <b>Date: </b> {{job.job.datePosted | date}} </h5>
+            <!-- <h5 class='location'> <b>Location: </b> {{job.job.location}} </h5> -->
+            <h5 class='work-type'> <b>Work Type: </b> {{job.job.jobType}} </h5>
+            <h5 class="job-id"><b>Posted By: </b>{{job.recruiter}}</h5>
+        </div>
+        </div>
+        <div class='buttons-latest'>
+            <button class="btn-31 f-button" type="button">
+                <span class="text-container">
+                    <span class="text">View</span>
+                </span>
+            </button>
+      
+        <!-- <button class="btn-31 f-button" type="button" data-toggle="modal" 
+       data-target={"#exampleModalCenter"+job.jobId}>
+        <span class="text-container">
+            <span class="text">View</span>
+        </span>
+    </button> -->
+        <!-- <Apply id={job.jobId} isFreelance={true} each={job}/> -->
+
+        </div>
+       
+    </div>
+    </div>

@@ -1,0 +1,49 @@
+<!-- <div class="list-back">
+    <h1 class='latest'>Latest Freelancing Jobs Posted By Recruiters</h1>
+    
+!isLoading && 
+ 
+</div> -->
+
+
+
+
+
+
+
+
+<div *ngIf="isLatestLoading">
+  <app-mainloader></app-mainloader>
+</div>
+
+<div *ngIf="!isLatestLoading">
+  <div class='top-btns'>
+  <!-- <button type="button" class='back-button'>
+    <Link to="/jobs" style={{textDecoration: "none",color: "white"}}>
+      <i class="fa-solid fa-arrow-left" style={{marginRight: "5px"}}></i>
+          Go Back</Link>
+      </button> -->
+ 
+  <div class ="dropdown-latest">
+  
+          <!-- <select class="custom-select" id="sort" onChange={changeOrder}>
+              <option>Sort By Date</option>
+              <option value="2">Show Latest</option>
+              <option value="1">Show Oldest</option>
+          </select> -->
+  </div>
+  </div>
+      <div class='home-page-content'>
+
+          <ng-container *ngFor="let each of latestJobs; let i = index">
+            <app-latesteach [job]="each"></app-latesteach>
+          </ng-container>
+          <!-- {jobs && jobs.map((job,index)  => {
+            return <JobElement job={job.job} recruiter={job.recruiter} key={index}/>
+          }
+           
+          )}
+      </div> -->
+  </div>
+<!-- } -->
+  </div>

@@ -1,0 +1,17 @@
+export interface FJob{
+    companyName: string,
+    datePosted: string,
+    jobDescription: string,
+    jobExperience: string,
+    jobId: number,
+    jobMode: string,
+    jobSalary: string,
+    jobScope: string,
+    jobSkills: Array<string>,
+    jobTitle: string,
+    jobType: string,
+    postedBy: string,
+    salaryType: string,
+    __v: number,
+    _id:string,
+}

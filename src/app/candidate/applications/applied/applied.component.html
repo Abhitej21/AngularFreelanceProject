@@ -1,0 +1,21 @@
+
+    <div *ngIf="isMainLoading" style="margin-top: 30px;">
+        <app-mainloader></app-mainloader>
+    </div>
+        <div *ngIf="!isMainLoading" class='home-page-content'>
+            <ng-container *ngFor="let eachJob of jobStreetJobs;let i=index">
+                <app-each-applied [isFreelance]="false" (delete)="withDraw($event)" [eachJob]="eachJob"></app-each-applied>
+            </ng-container>
+         <!-- {jobs.length === 0 && myJobs.length === 0 && <div class='no-img-div'>
+          <img 
+         class='no-applications'
+         src="https://freepngimg.com/thumb/facebook/72547-thinking-photography-question-mark-man-stock.png"
+          alt="No applications"/>
+          <h1 style={{color: "white"}}>No Applications till now</h1></div>} -->
+            <!-- {jobs && jobs.map((details,index) =>  
+                <EachApplied key={index} isFreelance={true} details={details}/>
+            )}
+            {myJobs && myJobs.map((details,index) =>  
+                <EachApplied key={index} isFreelance={false} details={details}/>
+            )} -->
+        </div>

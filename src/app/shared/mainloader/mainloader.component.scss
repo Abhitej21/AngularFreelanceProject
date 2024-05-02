@@ -1,0 +1,37 @@
+.loader {
+    width: 60vw;
+    height: 230px;
+    display: block;
+    margin: auto;
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 20px;
+    background: #7b7979;
+    box-sizing: border-box;
+  }
+  .loader::after {
+    content: '';  
+    width: 65vw;
+    height: 150px;
+
+    // width: calc(100% - 30px);
+    // height: calc(100% - 30px);
+    top: 15px;
+    left: 15px;
+    position: absolute;
+    background-image: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.5) 50%, transparent 80%), radial-gradient(circle 28px at 28px 28px, #bbbaba 99%, transparent 0), linear-gradient(#9d9d9d 24px, transparent 0), linear-gradient(#c5c3c3 18px, transparent 0), linear-gradient(#a6a5a5 66px, transparent 0);
+    background-repeat: no-repeat;
+    background-size: 75px 130px, 55px 56px, 50vw 30px, 50vw 40px, 54vw 56px;
+    background-position: 0% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+    box-sizing: border-box;
+    animation: animloader 3s linear infinite;
+  }
+  
+  @keyframes animloader {
+    0% {
+      background-position: 0% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+    }
+    100% {
+      background-position: 150% 0, 0 0, 70px 5px, 70px 38px, 0px 66px;
+    }
+  }

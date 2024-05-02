@@ -1,0 +1,178 @@
+<div class="main-form w-70">
+<div class="card" [ngClass]="{'form-shadow': profileForm.touched}">
+<div class="row d-flex flex-column align-items-center justify-content-center">
+    <form [formGroup]="profileForm" class="col-md-10" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+            <label for='username'>Username</label>
+            <input class="form-control" 
+            [readonly]="flag"
+            [class.disabled] = "flag && profileForm.get('username').value.length>0"
+            [value]="profileUser" id="username" formControlName="username"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.username.touched && profileForm.get('username').errors!==null && profileForm.get('username').errors['required']">
+                Username is required
+            </span>
+        </div>
+        <div class="d-flex justify-content-between">
+        <div class="mb-4 col-6" style="margin-right: 10px;">
+            <label for='firstname'>FirstName</label>
+            <input class="form-control" 
+           
+            id="firstname" formControlName="firstname"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.firstname.touched && profileForm.get('firstname').errors!==null && profileForm.get('firstname').errors['required']">
+                Firstname is required
+            </span>
+        </div>
+
+        <div class="mb-4 col-6">
+            <label for="lastname">LastName</label>
+            <input class="form-control"
+             type="text" id="lastname" formControlName="lastname"/>
+            <span class="text-danger"
+        
+                *ngIf="profileForm.controls.lastname.touched && profileForm.get('lastname').errors!==null && profileForm.get('lastname').errors['required']">
+                Lastname is required
+            </span>
+        </div>
+    </div>
+
+        <div class="mb-4">
+            <label for="email">Email</label>
+            <input class="form-control" type="text" id="email" formControlName="email"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.email.touched && profileForm.get('email').errors!==null && profileForm.get('email').errors['required']">
+                Email is required
+            </span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+        <div class="mb-4 col-6" style="margin-right: 10px;">
+            <label for="phone">Phone</label>
+            <input class="form-control" type="text" id="phone" formControlName="phone"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.phone.touched && profileForm.get('phone').errors!==null && profileForm.get('phone').errors['required']">
+                Phone Number is required
+            </span>
+        </div>
+
+        <div class="mb-4 col-6">
+            <label for="dob">Date of Birth</label>
+            <input class="form-control" type="date" id="dob" formControlName="dob"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.dob.touched && profileForm.get('dob').errors!==null && profileForm.get('dob').errors['required']">
+                Date of Birth is required
+            </span>
+        </div>
+    </div>
+        <div class="d-flex justify-content-between">
+
+        <div class="mb-4 col-6" style="margin-right: 10px;">
+            <label for="location">Location</label>
+            <input class="form-control" type="text" id="location" formControlName="location"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.location.touched && profileForm.get('location').errors!==null && profileForm.get('location').errors['required']">
+                Location is required
+            </span>
+        </div>
+
+        <div class="mb-4 col-6">
+            <label for="company">Company</label>
+            <input class="form-control" type="text" id="company" formControlName="company"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.company.touched && profileForm.get('company').errors!==null && profileForm.get('company').errors['required']">
+                Company is required
+            </span>
+        </div>
+
+    </div>
+
+        <div class="mb-4">
+            <label for="bio">Bio</label>
+            <input class="form-control" id="bio" type="text" formControlName="bio"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.bio.touched && profileForm.get('bio').errors!==null && profileForm.get('bio').errors['required']">
+                Bio is required
+            </span>
+        </div>
+
+        <div class="d-flex flex-column mb-4">
+            <label for="about">About</label>
+            <textarea id="about" rows="5" class='form-control' formControlName="about"></textarea>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.about.touched && profileForm.get('about').errors!==null && profileForm.get('about').errors['required']">
+                About is required
+            </span>
+        </div>
+
+        <!-- <div>
+            <label for="role">Role</label>
+            <input class="form-control"  id="role" type="text" formControlName="role"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.role.touched && profileForm.get('role').errors!==null && profileForm.get('role').errors['required']">
+                Role is required
+            </span>
+        </div> -->
+
+        <div *ngIf="profileForm.get('skills').value.length>0">
+        
+            <!-- {{(profileForm.get('skills').value)}} -->
+            <div class="all-skills">
+            <div *ngFor="let skill of profileForm.get('skills').value as FormArray; let i=index">
+               <span class="skill-box">{{skill}}
+    
+                   <button type="button" class="remove" (click)="removeSkill(i)">x</button>
+               </span>
+            </div></div>
+            
+        </div>
+
+        <div formArrayName="skills">
+            <label for="skills">Skills</label>
+            <div class="d-flex mb-3">
+            <select class='form-control select' id="skills" #selectedSkill>
+                <option *ngFor="let skill of availableSkills" [value]="skill">
+                    {{skill}}
+                </option>
+            </select>
+            
+        <button *ngIf="profileUser" type="button" class="add" (click)="addSkill(selectedSkill.value)">Add Skill</button>
+        <span class="text-danger"
+        *ngIf="profileForm.controls.skills.touched && profileForm.get('skills').length===0">
+        Atleast one skill is required
+    </span>
+    </div>
+    
+            <!-- <div *ngIf="profileForm.get('skills') as FormArray">
+            <div *ngFor="let skill of (profileForm.get('skills') as FormArray).controls; let i = index">
+                <span>{{skill.value}}</span>
+                <button type="button" (click)="removeSkill(i)">Remove</button>
+            </div>
+        </div> -->
+        </div>
+
+        <div class="d-flex justify-content-between">
+        <div class="mb-4 col-6" style="margin-right: 10px;">
+            <label for="github">Github</label>
+            <input class="form-control" id="github" type="text" formControlName="github"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.github.touched && profileForm.get('github').errors!==null && profileForm.get('github').errors['required']">
+                Github Url is required
+            </span>
+        </div>
+
+        <div class="mb-4 col-6">
+            <label for="linkedin">LinkedIn</label>
+            <input class="form-control" id="linkedin" type="text" formControlName="linkedin"/>
+            <span class="text-danger"
+                *ngIf="profileForm.controls.linkedin.touched && profileForm.get('linkedin').errors!==null && profileForm.get('linkedin').errors['required']">
+                LinkedIn Url is required
+            </span>
+        </div>
+    </div>
+        <!-- <button class="btn btn-primary">Hello</button> -->
+        <button [disabled]="profileForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</div>
+</div>

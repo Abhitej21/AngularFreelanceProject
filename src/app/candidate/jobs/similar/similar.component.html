@@ -1,0 +1,32 @@
+<li class="li">
+    <div class="SimilarFlex">
+      <div>
+        <img
+          class="SimilarJobs"
+          [src]="eachElement.company_logo_url" 
+          alt="similar job company logo"
+        />
+      </div>
+      <div>
+        <h1 class="SimilarTitle">{{eachElement.title}}</h1>
+        <p>
+          <!-- <FaStar class="Star" /> -->
+          <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+          &nbsp;{{eachElement.rating}}
+        </p>
+      </div>
+    </div>
+    <h1>Description</h1>
+    <p>{{eachElement.job_description}}</p>
+    <div class="FlexLocationSimilar">
+      <p>
+        <!-- <IoLocationOutline /> -->
+        <i class="fa-solid fa-location-dot" style="color: #fff"></i>
+        &nbsp;{{eachElement.location}}
+      </p>
+      <p>
+        <!-- <BsBriefcaseFill /> -->
+        &nbsp;{{eachElement.employment_type}}
+      </p>
+    </div>
+  </li>

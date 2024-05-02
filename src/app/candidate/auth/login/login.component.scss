@@ -1,0 +1,155 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    // font-family: "Poppins", sans-serif;
+  }
+  .forgot{
+    margin: 20px 0 20px 0;
+  }
+  .password-eye{
+    display: flex;
+    height: 1.2em;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-left: 20px;
+    width: 100%;
+
+  }
+
+  .eye-but{
+    border: none;
+    i{
+      color: gray
+    }
+    // transform: translate(-10px,0);
+  }
+  .hero {
+    height: 100vh;
+    // width: calc(100vw - 20px);
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eee;
+    position: absolute;
+  }
+  .form-box {
+    width: 380px;
+    height: 500px;
+    position: relative;
+    margin: 6% auto;
+    background: #eee;
+    padding: 5px;
+    background: #eeeeee;
+    border-radius: 50px;
+    box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
+    overflow: hidden;
+  }
+  .invalid-fb{
+    color: red;
+  }
+  .button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    background: linear-gradient(145deg, #d6d6d6, #ffffff);
+    box-shadow: 20px 20px 60px #cacaca, -20px -20px 60px #ffffff;
+    border-radius: 30px;
+  }
+  .toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+  }
+  .off{
+    visibility: hidden;
+  }
+  #btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(145deg, #e6ae21, #ffcf28);
+    border-radius: 50px;
+    // transform: translate(-40px,0);
+    transition: 0.5s;
+  }
+  
+  .social-icons {
+    margin: 30px auto;
+    text-align: center;
+  }
+  .social-icons img {
+    width: 30px;
+    margin: 0 12px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .social-icons img:hover {
+    transform: scale(1.2);
+  }
+  .input-group {
+    top: 120px;
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
+  }
+  .login{
+    top: 170px;
+  }
+  .input-field {
+    // width: 100%;
+    width: 120%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+  }
+  .my-submit {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    transform: translate(30px,0);
+    background: linear-gradient(145deg, #e6ae21, #ffcf28);
+    border: 0px;
+    outline: none;
+    border-radius: 50px;
+    // border-top-left-radius: 50px;
+  }
+  .my-submit:hover {
+    background: linear-gradient(145deg, #ffcf28, #e6ae21);
+  }
+  .check-box {
+    margin: 30px 10px 30px 0;
+  }
+  span {
+    color: #777;
+    font-size: 120x;
+    bottom: 68px;
+    position: absolute;
+  }
+  #login {
+    left: 50px;
+  }
+  // #signup {
+  //    left: 450px;
+
+  // }
+
+  .input-group{
+    .my-submit{
+      border-radius: 50px;
+    }
+  }

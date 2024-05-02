@@ -1,0 +1,50 @@
+<div class="each-card" *ngIf="!isFreelance">
+    <div>
+    <h3 *ngIf="applicationStatus">Status: <span [class]="applicationStatus">{{applicationStatus}}</span></h3>
+    <div class="d-flex">
+        <div *ngIf="appliedJobs.jobData?.companyLogo">
+            <img [src]="appliedJobs.jobData.companyLogo" style="height: 80px;width: 80px;margin-right: 20px;">
+        </div>
+        <div style="margin-top:10px;">
+            <h5>{{appliedJobs.jobData?.companyName | uppercase}}</h5>
+            <div class="company-and-logo">
+                <h3>{{appliedJobs.jobData?.jobTitle}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="details-job">
+       <h5 class="job-id"><b>Applied On: </b>{{appliedJobs.appliedAt | date}}</h5>
+       <h5 class="rec-id"><b>Posted By: </b>{{appliedJobs.postedBy?appliedJobs.postedBy:appliedJobs.jobData?.postedBy}}</h5>
+    </div>
+</div>
+<div class="buttons-latest">
+    <button class="btn-31 f-button" (click)="view(appliedJobs.jobData.jobId)"><span class="text">View</span></button>
+    <button class="delete" (click)="withDraw()"><i class="fa-regular fa-trash-can can"></i></button>
+</div>
+</div>
+
+
+<div class="each-card" *ngIf="isFreelance">
+    <div>
+    <h3 *ngIf="applicationStatus">Status: <span [class]="applicationStatus">{{applicationStatus}}</span></h3>
+    <div class="d-flex">
+        <!-- <div *ngIf="appliedJobs.jobData?.companyLogo">
+            <img [src]="appliedJobs.jobData.companyLogo" style="height: 80px;width: 80px;margin-right: 20px;">
+        </div> -->
+        <div style="margin-top:10px;">
+            <h5>{{appliedJobs.jobData?.companyName | uppercase}}</h5>
+            <div class="company-and-logo">
+                <h3>{{appliedJobs.jobData?.jobTitle}}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="details-job">
+       <h5 class="job-id"><b>Applied On: </b>{{appliedJobs.appliedAt | date}}</h5>
+       <h5 class="rec-id"><b>Posted By: </b>{{appliedJobs.postedBy?appliedJobs.postedBy:appliedJobs.jobData?.postedBy}}</h5>
+    </div>
+</div>
+<div class="buttons-latest">
+    <button class="btn-31 f-button" (click)="view(appliedJobs.jobData.jobId)"><span class="text">View</span></button>
+    <button class="delete" (click)="withDraw()"><i class="fa-regular fa-trash-can can"></i></button>
+</div>
+</div>

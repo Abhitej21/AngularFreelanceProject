@@ -1,0 +1,119 @@
+<div class="hero">
+  <!-- <p-toast></p-toast> -->
+
+  <div class="form-box">
+    <div class="button-box">
+      <div id="btn" [ngStyle]="{left: buttonLeft}"></div>
+      <button type="button" class="toggle-btn" (click)="login()">
+        Login
+      </button>
+      <button type="button" class="toggle-btn" (click)="signup()">
+        Signup
+      </button>
+    </div>
+      <!-- <div class="social-icons">
+        <img src="icons/Facebook_35.png" alt="facebook" />
+        <img src="icons/Instagram_35.png" alt="instagram" />
+        <img src="icons/Twitter_35.png" alt="twitter" />
+      </div> -->
+      <form id="login" class="input-group login" [ngStyle]="{left: loginLeft}">
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Username"
+          name="username"
+          [(ngModel)] = "username"
+          required
+        />
+        <div class="password-eye">
+        <input
+          [type]="isShow?'text':'password'"
+          class="input-field"
+          name="password"
+          placeholder="Password"
+          [(ngModel)]="password"
+          required
+        />
+      <button class='eye-but' (click)="toggleShow()">
+        <i class="fa" [ngClass]="{'fa-eye': isShow, 'fa-eye-slash': !isShow}"></i>
+      </button>
+      
+      </div>
+        <div class="forgot">
+        <a [routerLink]="['/forgot-password']">Forgot Passoword</a>
+      </div>
+        <!-- <input type="checkbox" class="check-box" /><span
+          >Remember Password</span
+          > -->
+          <button *ngIf="!isLoading" type="submit" pButton pRipple class="my-submit" (click)="onLogin()">
+            Log in
+          </button>
+          <p *ngIf="isLoading" class="text-center" style="width: 100%">
+            <app-loader></app-loader>
+          </p>
+          <button *ngIf="true" style="margin-top: 20px;" class="my-submit off">
+            HELLO
+          </button>
+      </form>
+      <form id="signup" [formGroup]="signUpForm" class="input-group" [ngStyle]="{left: signupLeft}">
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Username"
+          formControlName="username"
+          required
+        />
+        <input
+          type="email"
+          class="input-field"
+          formControlName="email"
+          placeholder="Email Id"
+          required
+        />
+        <div class="password-eye">
+          <input
+            [type]="isShow ? 'text': 'password'"
+            class="input-field"
+            formControlName="password"
+            placeholder="Password"
+            required
+          />
+          <button class='eye-but' (click)="toggleShow()">
+            <i class="fa" [ngClass]="{'fa-eye': isShow, 'fa-eye-slash': !isShow}"></i>
+          </button>
+      </div>
+      <div class="password-eye">
+        <input
+          type="password"
+          class="input-field"
+          formControlName="confirm"
+          placeholder="Confirm Password"
+          required
+        />
+        <!-- <button class='eye-but' (click)="toggleShow()">
+          <i class="fa" [ngClass]="{'fa-eye': isShow, 'fa-eye-slash': !isShow}"></i>
+        </button> -->
+      </div>
+        <p class="invalid-fb" 
+        *ngIf="signUpForm.get('password')?.touched && signUpForm?.get('password')?.value!==signUpForm.get('confirm')?.value">* Passwords do not match</p>
+        <div class="d-flex flex-row align-items-center w-100 h-50">
+        <input type="checkbox" class="check-box"
+          formControlName="acceptTerms"
+        />
+        <span style="transform: translate(30px,-65px);">I agree to the terms & conditions</span>
+        <p style='margin-top: 50px;' *ngIf="submitted && f['acceptTerms'].errors &&
+         f['acceptTerms'].errors['required'] !== null && 
+         f['acceptTerms'].errors['required']" class="invalid-fb">Accept Ts & Cs is required</p>
+      </div>
+        <button *ngIf="!isLoading" type="submit" class="my-submit but" (click)="onSignUp()">
+          Signup
+        </button>
+        <p *ngIf="isLoading" class="text-center" style="width: 100%">
+          <app-loader></app-loader>
+        </p>
+        <button *ngIf="true" style="margin-top: 20px;" class="my-submit off">
+          HELLO
+        </button>
+      </form>
+    </div>
+  </div>

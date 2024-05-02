@@ -1,0 +1,112 @@
+<div *ngIf="isViewLoading">
+  <app-commonloader></app-commonloader>
+</div>
+
+
+<div *ngIf="!isViewLoading" class="main">
+<div class="DetailsOfSingleJob">
+    <div class="detailsOfSmallScreens">
+      <div class="SingleJobImageFlex">
+      <div class='top-details'>
+        <div>
+          <img
+            class="ImageOfSingleJob"
+            [src]="jobCard.companyLogo"
+            alt="job details company logo"
+          />
+        </div>
+        <div class="StarFlexSingle">
+          <h1>{{jobCard?.title}}</h1>
+          <p>
+            <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+            <!-- <FaStar class="Stars" /> -->
+            <!-- &nbsp;&nbsp; -->
+            {{jobCard?.rating}}
+          </p>
+        </div>
+        </div>
+        <div>
+          <!-- <Link to="/jobs">
+        <button class='close-button'>CLOSE</button>
+        </Link> -->
+        </div>
+      </div>
+      <div class="LocationSingleJob">
+        <div class="employeSingle">
+          <p class="icon">
+            <!-- <IoLocationOutline /> -->
+            <i class="fa-solid fa-location-dot" style="color: #fff"></i>
+            &nbsp; 
+            {{jobCard?.location}}
+          </p>
+          <p class="icon" style="margin-left: 20px; ">
+            <!-- <BsBriefcaseFill /> -->
+            <i class="fa-solid fa-briefcase" style="color: #fcfcfc;"></i>
+            &nbsp; &nbsp;
+            {{jobCard?.employType}}
+          </p>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <i class="fa-solid fa-money-bill" style="color: #fff;transform: translate(-10px,-8px);margin-right: 5px"></i>
+          <p class="icon">{{jobCard?.package}}</p>
+        </div>
+      </div>
+      <hr />
+      <div class="DiscriptionFlex">
+        <h1>Description</h1>
+        <div class="Visit">
+            <a href="">
+
+            </a>
+          <!-- <Link class="anchor" to={jobCard.companyWebSite}>
+            Visit
+          </Link> -->
+          &nbsp;
+          <!-- <FaShareSquare class="Share" /> -->
+          &nbsp;
+        </div>
+      </div>
+      <p>{{jobCard?.description}}</p>
+
+      <h1>Skills</h1>
+      <div class="flexingJobsSkills">
+        <ng-container *ngFor="let skill of jobCard.skills">
+            <div class="eachSkill" key={each.id}>
+                <img [src]="skill.image_url" class="skill-img" alt={each.name} />
+                <p class="eachSkillPara">{{skill.name}}</p>
+              </div>
+        </ng-container>
+        <!-- {skill.map(each => (
+          <div class="eachSkill" key={each.id}>
+            <img src={each.imageSkill} alt={each.name} />
+            <p class="eachSkillPara">{{each.name}}</p>
+          </div>
+        ))} -->
+      </div>
+      <div class="LifeAtFlex">
+        <div class="LifeAtCompany">
+          <h1>Life at Company</h1>
+          <p>{{jobCard?.lifeAt}}</p>
+        </div>
+        <div>
+          <img
+            class="lifeAtCompanySmallScreens"
+            [src]="jobCard.imageLifeAt"
+            alt="life at company"
+          />
+        </div>
+      </div>
+    </div>
+    <div>
+      <h1 class="SimilarJobsHeadingSmallScreens">Similar Jobs</h1>
+      <ul class="ul">
+        <ng-container *ngFor="let each of jobCard.similarJobs">
+            <app-similar [eachElement]="each"></app-similar>
+        </ng-container>
+        <!-- {similarJobs.map(each => (
+          <SimilarJobDetails eachElement={each} key={each.id} />
+        ))} -->
+      </ul>
+    </div>
+  </div>
+</div>

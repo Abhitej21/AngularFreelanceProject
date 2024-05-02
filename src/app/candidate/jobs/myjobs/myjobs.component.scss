@@ -1,0 +1,66 @@
+
+::ng-deep{
+
+    .ngx-pagination{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ngx-pagination li{
+        margin-right: 7px !important;
+    }
+    .ngx-pagination li a{
+        width: 40px;
+        height: 40px;
+        border-radius: 50% !important;
+        background-color: #f8f8f8; 
+        display: flex !important;
+        justify-content: center;
+        text-decoration: none !important;
+        align-items: center;
+
+        &.small-screen{
+            display: none !important;
+        }
+
+        
+
+        // &.pagination-previous,&.pagination.next{
+        //     a,span{
+        //         width: 100% !important;
+        //         height: 100% !important;
+        //         border-radius: 50% !important;
+        //         overflow: hidden !important;
+        //         // color: #f8f8f8;
+        //     }
+        // }
+    }
+
+    .ngx-pagination .pagination-next{
+        background-color: transparent !important;
+    }
+
+    .ngx-pagination .pagination-next:before{
+        content: '' !important;
+        display: none !important;
+    }
+    .ngx-pagination .pagination-next:before{
+        display: none !important;
+    }
+
+    .current{
+        border-radius: 50px !important;
+        // padding: 5px !important;
+        width: 50px;
+        height: 50px;
+        scale: 1.5;
+        transition:  1s ease-in-out;
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+    }
+}
+

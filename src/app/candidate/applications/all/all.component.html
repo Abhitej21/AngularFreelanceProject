@@ -1,0 +1,53 @@
+<!-- <h1>Pure CSS Tabs With Indicator</h1> -->
+<div class="tabs">
+  
+    <input type="radio" id="tab1" name="tab-control" checked>
+    <input type="radio" id="tab2" name="tab-control">
+    <input type="radio" id="tab3" name="tab-control">  
+    <!-- <input type="radio" id="tab4" name="tab-control"> -->
+    <ul>
+      <li title="Features">
+          <label for="tab1" role="button">
+              <svg viewBox="0 0 24 24"><path d="M14,2A8,8 0 0,0 6,10A8,8 0 0,0 14,18A8,8 0 0,0 22,10H20C20,13.32 17.32,16 14,16A6,6 0 0,1 8,10A6,6 0 0,1 14,4C14.43,4 14.86,4.05 15.27,4.14L16.88,2.54C15.96,2.18 15,2 14,2M20.59,3.58L14,10.17L11.62,7.79L10.21,9.21L14,13L22,5M4.93,5.82C3.08,7.34 2,9.61 2,12A8,8 0 0,0 10,20C10.64,20 11.27,19.92 11.88,19.77C10.12,19.38 8.5,18.5 7.17,17.29C5.22,16.25 4,14.21 4,12C4,11.7 4.03,11.41 4.07,11.11C4.03,10.74 4,10.37 4,10C4,8.56 4.32,7.13 4.93,5.82Z"/>
+              </svg><br><span>All Applications</span></label>
+      </li>
+      <li title="Delivery Contents"><label for="tab2" role="button">
+          <img class="icon" src="https://res.cloudinary.com/da7y99axc/image/upload/v1714459338/noun-freelancer-1861058_pp2bxh.png"><br><span>My Jobs</span></label>
+      </li>
+      <li title="Shipping"><label for="tab3" role="button">
+          <img class="icon" src="https://res.cloudinary.com/da7y99axc/image/upload/v1714459338/noun-freelancer-1861058_pp2bxh.png">
+          <br><span>Freelance Jobs</span></label>
+      </li>   
+    </ul>
+    
+    <div class="slider"><div class="indicator"></div></div>
+    <div class="content">
+      <section>
+          <h2>All Applications</h2>
+          <!-- <app-latestjobs></app-latestjobs> -->
+          <!-- <app-applied></app-applied> -->
+          <div *ngIf="isLoading" style="margin-top: 30px;">
+            <app-mainloader></app-mainloader>
+        </div>
+          <div *ngIf="!isLoading" class="d-flex flex-column justify-content-center align-items-center">
+            
+            <ng-container *ngFor="let job of allJobs; let i = index">
+                <app-each-applied [isFreelance]="job.postedBy" [eachJob]="job"></app-each-applied>
+            </ng-container>
+          </div>
+      </section>
+  
+      <section>
+          <h2>My Jobs</h2>
+          <app-applied [jobs]="myJobs"></app-applied>
+      </section>
+      
+      <section>
+          <h2>Freelance Jobs</h2>
+          <app-freelance [jobs]="freelanceJobs"></app-freelance>
+          <!-- <app-latestjobs></app-latestjobs> -->
+      </section>
+      
+    </div>
+  </div>
+  

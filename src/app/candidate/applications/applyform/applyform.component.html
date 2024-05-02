@@ -1,0 +1,168 @@
+<div *ngIf="isLoading">
+  <app-commonloader></app-commonloader>
+</div>
+
+
+
+<div *ngIf="!isLoading" class="formbold-main-wrapper">
+    <div class="formbold-form-wrapper">
+      <img class="formbold-img" src="https://t3.ftcdn.net/jpg/03/13/59/86/360_F_313598658_3TUnxxAvA2v4oDdcAKAYVh15782FcrtW.jpg" />
+      
+      <!-- {companyLogo && <div class="demo">
+          <img src={companyLogo}/>
+          <h4>{companyName}</h4>
+       </div> 
+        } -->
+      <!-- <p class='applying-for'>{`Applying for ${jobTitle} at ${companyName}, ${location}`}</p> -->
+      <form (ngSubmit)="submitForm()">
+        <div class="formbold-input-flex">
+          <div>
+            <label htmlFor="firstname" class="formbold-form-label">
+              First Name
+            </label>
+            <input
+              type="text"
+              name="firstname"
+              id="firstname"
+              [(ngModel)]="applyForm.firstname"
+              placeholder="Your first name"
+              class="formbold-form-input"
+              [disabled]="true"
+            />
+          </div>
+          <div>
+            <label htmlFor="lastname" class="formbold-form-label">
+             
+              Last Name
+            </label>
+            <input
+              type="text"
+              name="lastname"
+              [(ngModel)]="applyForm.lastname"
+              id="lastname"
+              [disabled]="true"
+              placeholder="Your last name"
+              class="formbold-form-input"
+            />
+          </div>
+        </div>
+        <div class="formbold-input-flex">
+          <div>
+            <label htmlFor="email" class="formbold-form-label">
+              
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              [disabled]="true"
+              id="email"
+              [(ngModel)]="applyForm.email"
+              placeholder="example@email.com"
+              class="formbold-form-input"
+            />
+          </div>
+          <div>
+            <label class="formbold-form-label">Bio</label>
+            <input
+            type="text"
+            id="bio"
+            name="bio"
+            [disabled]="true"
+            [(ngModel)]="applyForm.bio"
+            placeholder="Your Role"
+            class="formbold-form-input"
+            />
+            <!-- <select
+              class="formbold-form-input"
+              name="occupation"
+              [(ngModel)]="applyForm.gender" 
+              id="occupation"
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="others">Others</option>
+            </select> -->
+          </div>
+        </div>
+        <div class="formbold-mb-3 formbold-input-wrapp">
+          <label htmlFor="phone" class="formbold-form-label">
+            
+            Phone
+          </label>
+          <div>
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              [disabled]="true"
+              [(ngModel)]="applyForm.phone"
+              placeholder="Phone number"
+              class="formbold-form-input"
+              ngModel
+            />
+          </div>
+        </div>
+        <div class="formbold-mb-3">
+          <label htmlFor="position" class="formbold-form-label">
+            Applying for Position:
+          </label>
+          <input
+            type="text"
+            [(ngModel)]="applyForm.position" 
+            name="position"
+            id="position"
+            [disabled]="true"
+            class="formbold-form-input"
+          />
+        </div>
+        <div class="formbold-mb-3">
+          <label htmlFor="dob" class="formbold-form-label">
+            
+            When can you start?
+          </label>
+          <input
+            type="date"
+            name="doj"
+            [(ngModel)]="applyForm.doj"
+            id="doj"
+            
+            class="formbold-form-input"
+          />
+        </div>
+       
+        <div class="formbold-form-file-flex">
+          <label htmlFor="message" class="formbold-form-label">
+            Cover Letter
+          </label>
+          <div class='upload-files'>
+          <input
+            type="file"
+            name="upload"
+            id="upload"
+            [(ngModel)]="applyForm.coverLetter"
+            class="formbold-form-file"
+          />
+          </div>
+        </div>
+        <div class="formbold-form-file-flex">
+          <label htmlFor="upload"  class="formbold-form-label">
+            Upload Resume
+          </label>
+          <div class='upload-files'>
+          <input
+            type="file"
+            [(ngModel)]="applyForm.resume"
+            name="resume"
+            accept=".doc,.docx,.pdf"
+            id="upload"
+            class="formbold-form-file"
+          />
+          </div>
+        </div>
+        <button class="formbold-btn" type="submit">
+          <!-- {submitLoading && <Spinner animation="border" size="sm" />} -->
+          &nbsp;&nbsp;Apply Now</button>
+      </form>
+    </div>
+  </div> 

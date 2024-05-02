@@ -1,0 +1,71 @@
+<div class="Card">
+    <span style="color: white;font-weight: bold;">Posted On: {{each.datePosted | date}}</span>
+    <div class='top-box'>
+    <div class="companyLogoJobFlex">  
+      <div>
+        <img
+          class="CompanyLogo"
+          [src]="each.companyLogo"
+          alt="company logo"
+        />
+      </div>
+      <div class="ratingFlexJob">
+        <h1 class="titleSmallScreens">{{each.jobTitle}}</h1>
+        <p>
+          <!-- <FaStar class="Star" /> -->
+          <i class="fa-solid fa-star" style="color: #FFD43B;"></i>
+          &nbsp;
+          {{each.rating}}
+        </p>
+      </div>
+    </div>
+ 
+
+<div class="left-items">
+  <!-- <button onClick={heartClicked}>
+      <Heart isClick={isStarred}/>
+    </button>   -->
+  <a routerLink="/cand/jobs/view" [queryParams]="{id: each.id}">
+      <button class="btn-31">
+        <span class="text-container">
+            <span class="text">View</span>
+        </span>
+    </button>
+  </a>
+
+
+  <a style="text-decoration: none;" routerLink="/cand/applications/apply" [queryParams]="{id: each.id}">
+    <button class='apply'>
+      <span>APPLY</span>
+    </button>
+  </a>
+        <!-- <Button each={each}/>  -->
+    <!-- <Apply id={each.id} isFreelance={false} each={each}/> -->
+</div>
+   
+    </div>
+  
+    <div class="packageFlex">
+      <div class="locationFlexJob">
+        <p class='icon'>
+          <!-- <IoLocationOutline /> -->
+          <i class="fa-solid fa-location-dot" style="color: #fff"></i>
+          &nbsp;{{each.location}}
+        </p>
+        <p class='icon'>
+          <i class="fa-solid fa-briefcase" style="color: #fcfcfc;"></i>
+          <!-- <BsBriefcaseFill /> -->
+          &nbsp;{{each.jobType}}
+        </p>
+        <p class='icon'>
+        <i class="fa-solid fa-map-location-dot"></i>
+          &nbsp;{{each.jobMode}}
+        </p>
+      </div>
+      <p>{{each.jobSalary}}</p>
+    </div>
+    <hr />
+    <h1>Description</h1>
+
+    <p>{{each.jobDescription}}</p>
+</div>
